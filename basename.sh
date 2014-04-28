@@ -2,10 +2,10 @@
 # basename.sh
 # Based on an idea cribbed from Todd Kitchen via the MacEnterprise mailing list
 # https://discussions.apple.com/message/22391604#22391604
-# change a Mac OS X client host name.
+# change an OS X client host name.
 if [ -z "$1" ]
 then
-    echo "Changes a Mac OS X client host name."
+    echo "Changes an OS X client host name."
     echo "Usage: sudo `basename $0` hostname"
     exit $E_WRONGARGS
 fi
