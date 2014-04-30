@@ -1,0 +1,1 @@
+Goal: to script the archival of mails in the inbox, after 30 days.
