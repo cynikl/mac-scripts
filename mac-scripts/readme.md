@@ -1,1 +1,1 @@
-A few scripts I wrote/collected/modified.
+some categories of scripts
