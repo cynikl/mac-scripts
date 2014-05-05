@@ -1,1 +1,0 @@
-some categories of scripts
