@@ -1,7 +1,7 @@
 
 #!/bin/sh
 # This script will clear the Favorites Servers then add one to the list appearing at Go -> Connect to Server
-# for all > 500 user accounts. 
+# for all > 500 user accounts and reboot the client.
 # Based on work by
 # Mike (http://jamfnation.jamfsoftware.com/viewProfile.html?userID=1927)
 # Rich Trouton (http://derflounder.wordpress.com/2013/01/10/updating-server-bookmarks-in-com-apple-sidebarlists-plist/)
@@ -23,7 +23,7 @@
 #
 # --- assignments ---
 ServerName="eleves"
-ServerURL="smb://florinfo-dc01.florinfo.ch/eleves$"
+ServerURL="smb://my.server.edu/eleves$"
 
 # --- executables ---
 Plist="/usr/libexec/PlistBuddy"
