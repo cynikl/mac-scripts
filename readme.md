@@ -1,1 +1,1 @@
-some categories of scripts
+Some scripts I've modified or written for mac administration.
