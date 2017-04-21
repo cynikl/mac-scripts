@@ -1,0 +1,30 @@
+Take a look here:
+https://groups.google.com/d/topic/macenterprise/zhpmfKrVjjs/discussion
+
+Here:
+https://jamfnation.jamfsoftware.com/discussion.html?id=52
+
+And Here:
+https://groups.google.com/d/topic/macenterprise/LOOaQotKUNU/discussion
+
+
+Here is a very basic script to set the Firmware password only if one has not already been set:
+
+#!/bin/sh
+
+date >> /path/to/setregproptool/srptlog.txt
+sw_vers >> /path/to/setregproptool/srptlog.txt
+	
+/path/to/setregproptool/setregproptool -c
+
+if [ $? == 0 ] ; then
+	echo "Already Set" >> /path/to/setregproptool/srptlog.txt
+elif [ $? == 1 ] ; then
+	echo "Setting Now" >> /path/to/setregproptool/srptlog.txt
+	/path/to/setregproptool/setregproptool -m command -p “PasswordHere"
+else
+	echo "Could Not Determine Status" >> /path/to/setregproptool/srptlog.txt
+fi
+exit 0
+
+matt johnson
