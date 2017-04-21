@@ -1,5 +1,7 @@
 #!/bin/sh
-# this script will clear the ~/Saved Application State folder of all users OPTI Bussigny.
+# this script will clear the ~/Saved Application State folder of all users.
+# modify the path to suit the local needs
+# cyril niklaus
 
 over500=`dscl /LDAPv3/127.0.0.1 list /Users UniqueID | awk '$2 > 500 { print $1 }'`
 for i in $over500

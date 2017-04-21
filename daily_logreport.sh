@@ -50,7 +50,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin:/Applications/Server.app/Contents/ServerRoot/
 
 
 # Define the recipient.
-RECIP="cynik@mac.com"
+RECIP="user@mail.com" 
 
 
 # That should be it for the necessary configuration part. The rest can be pretty much as-is.
