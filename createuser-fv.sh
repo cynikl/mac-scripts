@@ -1,10 +1,12 @@
 #!/bin/sh
+# Cyril Niklaus
+# This script uses a series of dialog boxes to create a standard user account.
 
 usernamePrompt(){
 osascript << 'EOT'
     tell application "System Events"
         with timeout of 60 seconds
-            text returned of (display dialog "Veuillez saisir le nom complet de l'utilisateur à créer" default answer "Prénom Nom" buttons {"OK"} default button 1 with title "Saisie du nom de l'utilisateur" with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:UserIcon.icns")
+            text returned of (display dialog "Veuillez saisir le nom complet de l'utilisateur à créer" default answer "Prénom Nom" buttons {"OK", "Annuler"} default button 1 cancel button 2 with title "Saisie du nom de l'utilisateur" with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:UserIcon.icns")
         end timeout
     end tell
 EOT
