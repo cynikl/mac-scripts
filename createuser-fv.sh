@@ -4,7 +4,7 @@ usernamePrompt(){
 osascript << 'EOT'
     tell application "System Events"
         with timeout of 60 seconds
-            text returned of (display dialog "Veuillez saisir le nom de l'utilisateur à créer" default answer "Prénom Nom" buttons {"OK"} default button 1 with title "Saisie du nom de l'utilisateur" with icon caution)
+            text returned of (display dialog "Veuillez saisir le nom complet de l'utilisateur à créer" default answer "Prénom Nom" buttons {"OK"} default button 1 with title "Saisie du nom de l'utilisateur" with icon caution)
         end timeout
     end tell
 EOT
@@ -14,7 +14,7 @@ shortUsernamePrompt(){
 osascript << 'EOT'
     tell application "System Events"
         with timeout of 60 seconds
-            text returned of (display dialog "Veuillez saisir le nom court de l'utilisateur à créer" default answer "prenom.Nom" buttons {"OK"} default button 1 with title "Saisie du nom court de l'utilisateur" with icon caution)
+            text returned of (display dialog "Veuillez saisir le nom court de l'utilisateur à créer" default answer "prenomnom" buttons {"OK"} default button 1 with title "Saisie du nom court de l'utilisateur" with icon caution)
         end timeout
     end tell
 EOT
@@ -25,7 +25,7 @@ passwordPrompt(){
 osascript << 'EOT'
     tell application "System Events"
         with timeout of 60 seconds
-            text returned of (display dialog "Veuillez saisir le mot de passe" default answer "Mot de passe" buttons {"OK"} default button 1 with title "Saisie du mot de passe" with icon caution)
+            text returned of (display dialog "Veuillez saisir le mot de passe" default answer "Mot de passe" with hidden answer buttons {"OK"} default button 1 with title "Saisie du mot de passe" with icon caution)
         end timeout
     end tell
 EOT
@@ -35,7 +35,7 @@ validatepasswordPrompt(){
 osascript << 'EOT'
     tell application "System Events"
         with timeout of 60 seconds
-            text returned of (display dialog "Veuillez valider le mot de passe" default answer "Mot de passe" buttons {"OK"} default button 1 with title "Saisie du mot de passe" with icon caution)
+            text returned of (display dialog "Veuillez valider le mot de passe" default answer "Mot de passe" with hidden answer buttons {"OK"} default button 1 with title "Saisie du mot de passe" with icon caution)
         end timeout
     end tell
 EOT
@@ -72,6 +72,7 @@ dscl . -create /Users/$shortusername PrimaryGroupID 20
 dscl . -create /Users/$shortusername NFSHomeDirectory /Users/$shortusername
 dscl . -passwd /Users/$shortusername $password
 
+createhomedir -c 2>&1 | grep -v "shell-init"
 
 
 
