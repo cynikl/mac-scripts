@@ -8,29 +8,47 @@
 # this script will create a new user based on
 # the credentials supplied. It also enables # the user in FileVault
 
+############
 # Set cocoaDialog location
-CD="/private/etc/Ogilvy/Applications/CocoaDialog.app/Contents/MacOS/CocoaDialog"
+#CD="/private/etc/Ogilvy/Applications/CocoaDialog.app/Contents/MacOS/CocoaDialog"
 
 # Dialog to enter the User name and the create $USERNAME variable
-rv=($($CD standard-inputbox --title "Username" --no-newline --informative-text "Enter the name of the new user to add"))
+#rv=($($CD standard-inputbox --title "Username" --no-newline --informative-text "Enter the name of the new user to add"))
 
-USERNAME=${rv[1]}
+#USERNAME=${rv[1]}
 
-if [ "$rv" == "1" ]; then echo "User said OK"
-elif [ "$rv" == "2" ]; then echo "Cancelling" exit
-fi
+#if [ "$rv" == "1" ]; then echo "User said OK"
+#elif [ "$rv" == "2" ]; then echo "Cancelling" exit
+#fi
 
 # Dialog to enter the Password and the create $PASSWORD variable
-rv=($($CD secure-standard-inputbox --title "Password" --no-newline --informative-text "Enter the password of the new user to add"))
+#rv=($($CD secure-standard-inputbox --title "Password" --no-newline --informative-text "Enter the password of the new user to add"))
 
-PASSWORD=${rv[1]}
+#PASSWORD=${rv[1]}
 
-if [ "$rv" == "1" ]; then echo "User said OK"
-elif [ "$rv" == "2" ]; then echo "Canceling" exit
-fi
+#if [ "$rv" == "1" ]; then echo "User said OK"
+#elif [ "$rv" == "2" ]; then echo "Canceling" exit
+#fi
+###########
+
+usernamePrompt(){
+         #$1 = window title
+         #$2 = prompt text
+         #$3 = default answer
+osascript << 'EOT'
+    tell application "System Events"
+        with timeout of 60 seconds
+            text returned of (display dialog "Veuillez saisir le nom de l'utilisateur à créer" default answer "Prénom.Nom" buttons {"OK"} default button 1 with title "Saisie du nom de l'utilisateur" with icon caution)
+        end timeout
+    end tell
+EOT
+}
+
+username="$(usernamePrompt)"
+#echo $username
 
 #Create Mobile Account
-sudo /System/Library/CoreServices/ManagedClient.app/Contents/Resources/createmobileaccount -n $USERNAME -p $PASSWORD > /dev/null 2>&1
+#sudo /System/Library/CoreServices/ManagedClient.app/Contents/Resources/createmobileaccount -n $USERNAME -p $PASSWORD > /dev/null 2>&1
 
 # create the FileVault plist file:
 echo '<?xml version="1.0" encoding="UTF-8"?>
