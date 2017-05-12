@@ -1,6 +1,6 @@
 #!/bin/sh
 # Cyril Niklaus
-# This script uses a series of dialog boxes to create a standard user account.
+# This script uses a series of dialog boxes to create a standard user account and activates it for fv.
 
 usernamePrompt(){
 osascript << 'EOT'
@@ -49,27 +49,18 @@ password="$(passwordPrompt)"
 validatepassword="$(validatepasswordPrompt)"
 
 
-
+# sanity check
 if [[ $password != $validatepassword ]] ; then
     echo "Les mots de passe ne correspondent pas."
-    # erreur si on garde le dialogue.
-    # osascript << 'EOT'
-    #     tell application "System Events"
-    #         with timeout of 60 seconds
-    #             display dialog "Utilisateur pas créé" buttons {"OK"} default button 1 with title "Utilisateur créé" with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:UserIcon.icns"
-    #         end timeout
-    #     end tell
-    # EOT
-
-    exit 1;
+        osascript -e 'tell app "System Events" to display dialog "Les mots de passe ne correspondent pas." buttons {"OK"} default button 1 with title "Utilisateur pas créé" with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:AlertStopIcon.icns"'
+        exit 0;
 fi
 
-
-
-#
+# all is clear, let's create the user
+# check for the next available UID
 getNextAvailableUserUid(){
-    local MAXID=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ug | tail -1)
-    echo $((MAXID+1))
+    local lastUID=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ug | tail -1)
+    echo $((lastUID+1))
 }
 
 userid=$(getNextAvailableUserUid)
@@ -85,10 +76,11 @@ dscl . -passwd /Users/$shortusername $password
 
 createhomedir -c -u $shortusername
 
-# pause avant d'enlever le keychain problématique
+# not normally necessary, but ran into this on some machines with already a keychain in the user template
+# pause while the homedir is created
 sleep 10
 
-# remove le keychain
+# remove the problematic keychain
 rm /Users/$shortusername/Library/Keychains/*
 
 # Dialogue de fin
@@ -100,33 +92,35 @@ osascript << 'EOT'
     end tell
 EOT
 
-# # create the FileVault plist file:
-# ne marche pas en 10.12
+# # create the FileVault plist
+# These values have to be populated in the policy in jamf
+# $4 ladmin name
+# $5 ladmin password or recovery key
 
-# echo '<?xml version="1.0" encoding="UTF-8"?>
-# <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-# <plist version="1.0">
-# <dict>
-# <key>Username</key>
-# <string>'$4'</string>
-# <key>Password</key>
-# <string>'$5'</string>
-# <key>AdditionalUsers</key>
-# <array>
-# <dict>
-# <key>Username</key>
-# <string>'$username'</string>
-# <key>Password</key>
-# <string>'$password'</string>
-# </dict>
-# </array>
-# </dict>
-# </plist>' > /tmp/fvenable.plist
-#
-# # now add user to FileVault
-# sudo fdesetup add -i < /tmp/fvenable.plist
-#
-# # remove fvenable.plist
-# rm /tmp/fvenable.plist
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>Username</key>
+<string>'$4'</string>
+<key>Password</key>
+<string>'$5'</string>
+<key>AdditionalUsers</key>
+<array>
+<dict>
+<key>Username</key>
+<string>'$shortusername'</string>
+<key>Password</key>
+<string>'$password'</string>
+</dict>
+</array>
+</dict>
+</plist>' > /tmp/fvuser.plist
+
+# Enable the user for fv
+sudo fdesetup add -i < /tmp/fvuser.plist
+
+# remove the plist
+rm /tmp/fvuser.plist
 
 exit 0
