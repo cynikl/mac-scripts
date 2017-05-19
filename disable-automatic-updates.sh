@@ -7,7 +7,7 @@
 defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool TRUE
 defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool FALSE
 # fichiers system
-defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool FALSE 
+defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool TRUE 
 # system updates
 defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool FALSE 
 # app updates
