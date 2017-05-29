@@ -1,5 +1,6 @@
 #!/bin/sh
-# basename.sh
+# basename.
+# Cyril Niklaus
 # Based on an idea cribbed from Todd Kitchen via the MacEnterprise mailing list
 # https://discussions.apple.com/message/22391604#22391604
 # change a Mac OS X client host name.
