@@ -1,5 +1,4 @@
-
-#!/bin/sh
+#!/bin/bash
 
 # script to add a server to the list appearing at Go -> Connect to Server
 # for all > 500 user accounts.

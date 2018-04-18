@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # time is in seconds in the AppleScript, in minutes for shutdown.
 # this script works even if no one is logged.
 

@@ -1,5 +1,5 @@
 
-#!/bin/sh
+#!/bin/bash
 # This script will clear the Favorites Servers then add one to the list appearing at Go -> Connect to Server
 # for all > 500 user accounts and reboot the client.
 # Based on work by
