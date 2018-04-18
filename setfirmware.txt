@@ -10,7 +10,7 @@ https://groups.google.com/d/topic/macenterprise/LOOaQotKUNU/discussion
 
 Here is a very basic script to set the Firmware password only if one has not already been set:
 
-#!/bin/sh
+#!/bin/bash
 
 date >> /path/to/setregproptool/srptlog.txt
 sw_vers >> /path/to/setregproptool/srptlog.txt

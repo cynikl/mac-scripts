@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # this script will clear the ~/Library/Caches folder of all users.
 
 over500=`dscl /LDAPv3/127.0.0.1 list /Users UniqueID | awk '$2 > 500 { print $1 }'`

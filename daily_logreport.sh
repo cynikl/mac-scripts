@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/bash 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/Applications/Server.app/Contents/ServerRoot/usr/sbin export PATH 
 
 # This mini shell script will read your logs, output the information to a text file, 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # http://superuser.com/questions/398071/how-can-i-hide-show-the-wi-fi-menu-item-from-the-terminal-in-os-x
 # Removes the Wifi menu from the menubar.
 # This setting is set on a per-user basis, so needs to be run as the user

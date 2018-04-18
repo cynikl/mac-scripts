@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Firewall status check EA
 
 result=`/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate`

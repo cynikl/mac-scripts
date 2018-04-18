@@ -1,5 +1,5 @@
-#!/bin/sh
-# cyril.niklaus@artcomputer.ch 2015-10-01, 2015-12-19
+#!/bin/bash
+# cyril.niklaus@company.com 2015-10-01, 2015-12-19
 
 # change the path to point to the correct directory
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Cyril Niklaus
 # This script uses a series of dialog boxes to create a standard user account and activates it for fv.
 

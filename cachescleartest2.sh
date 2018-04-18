@@ -1,5 +1,5 @@
-#!/bin/sh
-# cyril.niklaus@artcomputer.ch 2015-10-01
+#!/bin/bash
+# cyril.niklaus@company.com 2015-10-01
 
 # change the path to point to the correct directory
 # There is no provision for the Shared folder if any present.

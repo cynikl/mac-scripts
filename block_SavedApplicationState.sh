@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # this script will clear the ~/Saved Application State folder of all users.
 # modify the path to suit the local needs
 # cyril niklaus

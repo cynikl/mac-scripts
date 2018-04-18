@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # reboot_dialog.sh
     osascript << 'END'
     tell application "System Events"

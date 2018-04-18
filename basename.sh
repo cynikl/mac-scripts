@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # basename.sh
 # Cyril Niklaus
 # Based on an idea cribbed from Todd Kitchen via the MacEnterprise mailing list

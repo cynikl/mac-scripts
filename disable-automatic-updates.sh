@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # enables automatic check, as some clients seem to have it off, never appearing in FW asking for updates
 # disable automatic downloads of updates, esp Sierra
 # Cyril Niklaus ART Computer SA

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # kickstarting ARD
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -specifiedUsers
 sleep 1
