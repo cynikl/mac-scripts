@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>ch.artcomputer.restartafp</string>
+    <string>ch.changeit.restartafp</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/restartAFP.sh</string>

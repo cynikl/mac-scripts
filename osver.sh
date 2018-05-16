@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Determine OS version
-# Rich Trouton I think.
+# Rich Trouton I think, with added versions
 OSVERS=$(sw_vers -productVersion | awk -F. '{print $2}')
 
 if [[ ${OSVERS} -lt 6 ]]; then
@@ -24,12 +24,24 @@ if [[ ${OSVERS} -eq 9 ]]; then
   echo "I'm running 10.9!"
 fi
 
-if [[ ${OSVERS} -gt 9 ]]; then
+if [[ ${OSVERS} -eq 10 ]]; then
   echo "I'm running 10.10!"
 fi
 
-if [[ ${OSVERS} -eq 10 ]]; then
-  echo "I'm running 10.10!"
+if [[ ${OSVERS} -eq 11 ]]; then
+  echo "I'm running 10.11!"
+fi
+
+if [[ ${OSVERS} -eq 12 ]]; then
+  echo "I'm running 10.12!"
+fi
+
+if [[ ${OSVERS} -gt 12 ]]; then
+  echo "I'm running 10.13!"
+fi
+
+if [[ ${OSVERS} -eq 13 ]]; then
+  echo "I'm running 10.13!"
 fi
 
 exit 0

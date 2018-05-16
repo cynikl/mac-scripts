@@ -153,7 +153,7 @@
 										<key>GID</key>
 										<integer>0</integer>
 										<key>PATH</key>
-										<string>ch.artcomputer.SetDesktopImages.plist</string>
+										<string>ch.changeit.SetDesktopImages.plist</string>
 										<key>PATH_TYPE</key>
 										<integer>1</integer>
 										<key>PERMISSIONS</key>
@@ -518,7 +518,7 @@
 			<key>CONCLUSION_ACTION</key>
 			<integer>0</integer>
 			<key>IDENTIFIER</key>
-			<string>ch.artcomputer.pkg.SetDesktopImagesMorges</string>
+			<string>ch.changeit.pkg.SetDesktopImagesMorges</string>
 			<key>OVERWRITE_PERMISSIONS</key>
 			<false/>
 			<key>VERSION</key>

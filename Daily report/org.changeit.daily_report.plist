@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.murkhapandita.daily_report.plist</string>
+	<string>org.changeit.daily_report.plist</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Library/daily_report_script/daily_logreport.sh</string>

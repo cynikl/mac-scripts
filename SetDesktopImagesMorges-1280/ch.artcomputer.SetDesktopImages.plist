@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>ch.artcomputer.SetDesktopImages.plist</string>
+	<string>ch.changeit.SetDesktopImages.plist</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Library/SetDesktopImages/SetDesktopImages.py</string>

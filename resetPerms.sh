@@ -1,5 +1,6 @@
 #!/bin/bash
-# pris sur serveur bussigny
+# to reset permissions
+
 userList=/tmp/$(uuidgen)
 
 ls > $userList

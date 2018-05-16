@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>org.murkhapandita.initialsetup</string>
+  <string>org.changeit.initialsetup</string>
   <key>ProgramArguments</key>
   <array>
     <string>/var/first_boot1010.sh</string>

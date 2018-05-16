@@ -285,7 +285,7 @@ fi
 
 # Remove setup LaunchDaemon item
 
-srm /Library/LaunchDaemons/ch.artcomputer.initialsetup.plist
+srm /Library/LaunchDaemons/ch.changeit.initialsetup.plist
 
 # Make script self-destruct
 

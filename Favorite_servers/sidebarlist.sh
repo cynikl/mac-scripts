@@ -21,7 +21,7 @@
 
 # --- assignments ---
 ServerName="eleves" #doesn't need to be a URL
-ServerURL="smb://florinfo-dc01.florinfo.ch/eleves$"
+ServerURL="smb://my.server.edu/eleves$"
 
 # --- executables ---
 Plist="/usr/libexec/PlistBuddy"
