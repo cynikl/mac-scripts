@@ -33,5 +33,9 @@
 	stopChrono=$(/bin/date '+%s')
 	timeElapsed=$(($stopChrono-$startChrono))
 	echo_log "This script took $timeElapsed seconds to run."
+
+	# we can also log to the system log with:
+	logger -t "script" "This script ran fine"
+	
 	
 	exit 0
