@@ -36,12 +36,12 @@ if [[ ${OSVERS} -eq 12 ]]; then
   echo "I'm running 10.12!"
 fi
 
-if [[ ${OSVERS} -gt 12 ]]; then
+if [[ ${OSVERS} -eq 13 ]]; then
   echo "I'm running 10.13!"
 fi
 
-if [[ ${OSVERS} -eq 13 ]]; then
-  echo "I'm running 10.13!"
+if [[ ${OSVERS} -gt 13 ]]; then
+  echo "I'm running 10.14!"
 fi
 
 exit 0

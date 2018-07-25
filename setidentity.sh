@@ -9,11 +9,11 @@ DATE='date +%Y-%m-%d_%H:%M:%S'
 LOG='/var/log/setidentity.log'
 
 function echo_log {
-    echo `$DATE`" $1" >> $LOG
+    echo "$DATE"" $1" >> $LOG
 }
 # start
 
-loggedInUser=`python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");'`
+loggedInUser=$(python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')
 
 echo_log "Got the logged-in user"
 
